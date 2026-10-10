@@ -1,0 +1,5 @@
+irb(main):001:0> 1 + 1
+=> 2
+irb(main):002:0> puts "hi"
+hi
+=> nil

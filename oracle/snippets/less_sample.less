@@ -1,0 +1,31 @@
+// Основные переменные
+@import "mixins";
+@base-color: #4d926f;
+@spacing: 8px;
+
+.rounded(@radius: 4px) {
+  border-radius: @radius;
+}
+
+.header when (@debug = true) { color: red; }
+
+#main {
+  @pad: @spacing * 2;
+  .mixin;
+  color: saturate(@base-color, 5%);
+  width: calc(100% - @pad);
+  h1& { font-size: 2em; }
+  .menu& { .rounded(); }
+
+  .child, .sibling ~ .sib {
+    &:hover { background: fadeout(@base-color, 50%); }
+    &::after { content: ""; }
+  }
+}
+
+@iterations: 3;
+.loop (@i) when (@i > 0) {
+  .mt-@{i} { margin-top: (@i * @spacing); }
+  .loop(@i - 1);
+}
+.loop(@iterations);

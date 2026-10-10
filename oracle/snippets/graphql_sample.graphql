@@ -1,0 +1,35 @@
+# Схема пользователей
+query UserQuery($id: ID!, $withPosts: Boolean = false) {
+  user(id: $id) {
+    id
+    name
+    email @include(if: $withPosts)
+    posts(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+      edges {
+        node {
+          title
+          createdAt
+        }
+        cursor
+      }
+      totalCount
+    }
+  }
+}
+
+mutation CreatePost($input: CreatePostInput!) {
+  createPost(input: $input) {
+    ...PostFields
+  }
+}
+
+fragment PostFields on Post {
+  id
+  title
+}
+
+subscription { postCreated { id } }
+
+type Query { user(id: ID!): User }
+scalar DateTime
+enum Role { ADMIN USER }

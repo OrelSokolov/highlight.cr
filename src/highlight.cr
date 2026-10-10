@@ -1,0 +1,7 @@
+require "./highlight/js_regex"
+require "./highlight/mode"
+require "./highlight/emitter"
+require "./highlight/modes"
+require "./highlight/core"
+require "./highlight/session"
+require "./highlight/languages"

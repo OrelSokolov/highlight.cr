@@ -1,0 +1,11 @@
+name: highlight_cr
+version: 0.1.0
+crystal: ">= 1.21.0"
+description: |
+  Порт highlight.js 11.12.0 на Crystal — 1:1 по результатам.
+  Синтаксическая подсветка: движок режимов (subLanguage, автодетект,
+  relevance), HTML-эмиттер с tiered-scope классами и common-набор из
+  37 языков. Без внешних зависимостей.
+
+authors:
+  - oleg

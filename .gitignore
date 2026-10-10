@@ -1,0 +1,6 @@
+/lib/
+/bin/
+/.shards/
+*.dSYM
+*.err
+scss_value_kw.txt

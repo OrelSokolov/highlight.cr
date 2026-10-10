@@ -1,0 +1,29 @@
+/* Основные стили */
+@import url("reset.css");
+@charset "UTF-8";
+
+:root {
+  --main-color: #3498db;
+  --spacing: 0.5rem;
+}
+
+body, html {
+  margin: 0;
+  padding: calc(var(--spacing) * 2);
+  font-family: "Inter", sans-serif;
+  background: url(bg.png) no-repeat, rgb(255 255 255 / 50%);
+}
+
+.container > .item:nth-child(2n+1)::before {
+  content: "→";
+  color: var(--main-color);
+  width: 100px;
+}
+
+@media (max-width: 768px) and (min-resolution: 2dppx) {
+  .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(10em, 1fr)); }
+}
+
+@keyframes slide { from { left: 0 } to { left: 100% } }
+
+a:hover:not(.active) { opacity: .8 !important; }

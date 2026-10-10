@@ -1,0 +1,22 @@
+diff --git a/app/models/user.rb b/app/models/user.rb
+index 1234567..89abcde 100644
+--- a/app/models/user.rb
++++ b/app/models/user.rb
+@@ -10,7 +10,9 @@ class User < ApplicationRecord
+   validates :email, presence: true
+-  validates :name, length: { minimum: 2 }
++  validates :name, length: { minimum: 3 }
++  validates :age, numericality: { greater_than: 0 }
+   has_many :posts, dependent: :destroy
+ 
+   def adult?
+-    age >= 18
++    age >= 21
+   end
+diff --git a/README.md b/README.md
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,4 @@
+ # Project
++
+ New content

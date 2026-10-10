@@ -1,0 +1,37 @@
+// Переменные и миксины
+$primary: #3498db !default;
+$spacing: 8px;
+$map: (small: 4px, large: 16px);
+
+@mixin respond($bp) {
+  @if $bp == mobile {
+    @media (max-width: 600px) { @content; }
+  } @else {
+    @media (min-width: 601px) { @content; }
+  }
+}
+
+@function double($n) {
+  @return $n * 2;
+}
+
+@use "base";
+@forward "buttons";
+
+.card {
+  border: 1px solid rgba($primary, 0.25);
+  padding: map-get($map, large);
+
+  &__title { font-weight: bold; color: darken($primary, 10%); }
+
+  .is-active & { outline: double($spacing); }
+
+  @include respond(mobile) {
+    padding: map-get($map, small);
+    > .child:nth-of-type(2) { display: none; }
+  }
+}
+
+@each $name, $size in $map {
+  .m-#{$name} { margin: $size; }
+}

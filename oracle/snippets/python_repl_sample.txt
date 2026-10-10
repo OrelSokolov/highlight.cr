@@ -1,0 +1,20 @@
+>>> 1 + 1
+2
+>>> def fib(n):
+...     a, b = 0, 1
+...     while n > 0:
+...         a, b = b, a + b
+...         n -= 1
+...     return a
+>>> fib(10)
+55
+>>> "строка".upper()
+'СТРОКА'
+>>> [x * 2 for x in range(3)]
+[0, 2, 4]
+>>> import json
+>>> json.dumps({"a": [1, 2]})
+'{"a": [1, 2]}'
+>>> raise ValueError("oops")
+Traceback (most recent call last):
+ValueError: oops

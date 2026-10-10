@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config SYSTEM "config.dtd">
+<config version="2.0" debug="false">
+  <!-- Комментарий: настройки сервера -->
+  <server host="localhost" port="8080" ssl="true"/>
+  <users>
+    <user id="1" role="admin">
+      <name>Олег</name>
+      <email>oleg@example.com</email>
+    </user>
+  </users>
+  <style><![CDATA[
+    body { color: red; }
+  ]]></style>
+  <script type="application/javascript">if (x < 10) alert("hi");</script>
+  <empty></empty>
+  <?php echo "x"; ?>
+</config>

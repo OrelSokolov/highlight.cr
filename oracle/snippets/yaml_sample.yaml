@@ -1,0 +1,65 @@
+# Конфигурация деплоя
+version: "3.8"
+
+x-common: &common-env
+  LOG_LEVEL: info
+  TZ: Europe/Moscow
+
+services:
+  api:
+    image: registry.example.com/api:1.2.3
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+    environment:
+      <<: *common-env
+      DATABASE_URL: postgres://user:pass@db:5432/app
+    ports:
+      - "8080:80"
+      - "127.0.0.1:9090:90"
+    depends_on:
+      db:
+        condition: service_healthy
+    deploy:
+      replicas: 2
+      resources:
+        limits: { cpus: "0.50", memory: 512M }
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  db_data:
+
+networks:
+  default:
+    driver: bridge
+
+features:
+  - fast
+  - { name: safe, level: 3 }
+  - |
+    multi
+    line
+
+multiline_text: |
+  первая строка
+  вторая строка
+
+folded: >
+  текст
+  в одну строку
+
+anchored: &anchor значение
+ref: *anchor
+date: 2024-01-15T10:30:00Z
+bool_flags: [true, false, yes, no, on, off]
+special: "escape\"quote\tn\tnew"
