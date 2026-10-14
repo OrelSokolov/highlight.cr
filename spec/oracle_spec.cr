@@ -46,6 +46,7 @@ module OracleSpec
     {"shell", "shell_sample.sh"}, {"sql", "sql_sample.sql"}, {"swift", "swift_sample.swift"},
     {"yaml", "yaml_sample.yaml"}, {"typescript", "typescript_sample.ts"},
     {"vbnet", "vbnet_sample.vb"}, {"wasm", "wasm_sample.wat"},
+    {"erb", "erb_sample.erb"},
   ]
 end
 

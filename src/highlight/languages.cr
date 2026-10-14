@@ -19,6 +19,9 @@ module Highlight
       "kotlin", "less", "lua", "makefile", "perl", "objectivec", "php",
       "php-template", "plaintext", "python", "python-repl", "r", "rust",
       "scss", "shell", "sql", "swift", "yaml", "typescript", "vbnet", "wasm",
+      # вне common.js highlight.js — регистрируются последними, как при
+      # явном hljs.registerLanguage(...) поверх common-бандла
+      "erb",
     ] of String
 
     def self.register_common(hljs : HLJS)

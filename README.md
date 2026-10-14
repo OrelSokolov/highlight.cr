@@ -48,7 +48,7 @@ result = hljs.highlight(code, "ruby")
 | Highlighting engine (mode compiler, `subLanguage`, continuations, relevance, illegal handling) | ✅ Ported | Full port of `lib/core.js` |
 | HTML emitter (tiered scope class names, sublanguages) | ✅ Ported | Byte-identical output |
 | Auto-detection (`highlightAuto`, `secondBest`, tie-breaking by registration order and superset rules) | ✅ Ported | |
-| Common bundle — all 36 common languages        | ✅ Ported    | See list below |
+| Common bundle — all 36 common languages + ERB | ✅ Ported    | See list below |
 | Language aliases (`registerAliases`)           | ✅ Ported    | |
 | Plugins (`before:highlight`, `after:highlight`) | ✅ Ported   | |
 | `configure` (`classPrefix`, `languages`)        | ✅ Ported    | |
@@ -56,15 +56,15 @@ result = hljs.highlight(code, "ruby")
 | DOM API (`highlightElement`, `highlightAll`, etc.) | ❌ Not ported | highlight.cr is a pure server-side library; there is no DOM in Crystal |
 | Web Worker / browser builds                     | ❌ Not ported | N/A for Crystal |
 | `__emitTokens`-style languages                  | ❌ Not ported | None exist in the common bundle |
-| Languages beyond the common bundle              | ❌ Not ported | Can be ported following the same scheme (see `CONVENTIONS.md`) |
+| Languages beyond the common bundle              | ✅ ERB ported | Others can be ported following the same scheme (see `CONVENTIONS.md`) |
 | CSS themes                                      | ➖ Reused    | Use any highlight.js theme; markup is identical |
 
-## Languages (36)
+## Languages (37)
 
 xml, bash, c, cpp, csharp, css, markdown, diff, ruby, go, graphql, ini,
 java, javascript, json, kotlin, less, lua, makefile, perl, objectivec, php,
 php-template, plaintext, python, python-repl, r, rust, scss, shell, sql,
-swift, yaml, typescript, vbnet, wasm
+swift, yaml, typescript, vbnet, wasm, erb
 
 ## Intentional differences from the JS original
 
@@ -80,7 +80,7 @@ swift, yaml, typescript, vbnet, wasm
 ## Development
 
 ```sh
-crystal spec spec/oracle_spec.cr        # run the 96 oracle cases
+crystal spec spec/oracle_spec.cr        # run the 98 oracle cases
 node oracle/cases.js > oracle/expected.yml  # regenerate expectations
 crystal run spec/diff_dbg.cr -- <lang> <snippet>  # find first output divergence
 ```

@@ -8,6 +8,9 @@
 // значения — escape-протокол \n/\t/\r/\\.
 
 const hljs = require('./vendor/highlight.js/lib/common');
+// Языки вне common-бандла — как явный registerLanguage поверх него
+// (порядок регистрации важен для list_languages).
+hljs.registerLanguage('erb', require('./vendor/highlight.js/lib/languages/erb'));
 const fs = require('fs');
 const snippet = (name) => fs.readFileSync(`${__dirname}/snippets/${name}`, 'utf8');
 
@@ -88,6 +91,7 @@ const LANG_SNIPPETS = [
   ['typescript', 'typescript_sample.ts'],
   ['vbnet', 'vbnet_sample.vb'],
   ['wasm', 'wasm_sample.wat'],
+  ['erb', 'erb_sample.erb'],
 ];
 
 for (const [lang, file] of LANG_SNIPPETS) {

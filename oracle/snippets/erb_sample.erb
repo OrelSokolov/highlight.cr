@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %></title>
+</head>
+<body>
+  <%# TODO: paginate %>
+  <h1><%= user.name %></h1>
+  <% users.each do |u| %>
+    <li class="user"><%= link_to u.name, u %></li>
+  <% end %>
+  <%- if admin? -%>
+    <p>admin panel</p>
+  <%- end -%>
+</body>
+</html>

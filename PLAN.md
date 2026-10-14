@@ -63,12 +63,14 @@
   `end: ""` трактуется как отсутствующий (JS falsy), regex-литералы с `#`
   или `/` внутри классов пишутся строками (см. CONVENTIONS.md).
 
-## Языки (36)
+## Языки (37)
 
 xml, bash, c, cpp, csharp, css, markdown, diff, ruby, go, graphql, ini,
 java, javascript, json, kotlin, less, lua, makefile, perl, objectivec, php,
 php-template, plaintext, python, python-repl, r, rust, scss, shell, sql,
 swift, yaml, typescript, vbnet, wasm — все портированы и зелёные.
+Вне common-набора: erb (мост xml+ruby, регистрируется последним —
+как явный `registerLanguage` поверх common-бандла).
 
 Особенности портов: typescript вызывает свежий `JavascriptLang.defined`
 и мутирует его (swapMode для shebang/use_strict); cpp берёт exports из c;
