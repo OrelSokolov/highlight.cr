@@ -47,6 +47,7 @@ module OracleSpec
     {"yaml", "yaml_sample.yaml"}, {"typescript", "typescript_sample.ts"},
     {"vbnet", "vbnet_sample.vb"}, {"wasm", "wasm_sample.wat"},
     {"erb", "erb_sample.erb"},
+    {"dockerfile", "dockerfile_sample.Dockerfile"},
   ]
 end
 

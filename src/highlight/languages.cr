@@ -22,6 +22,7 @@ module Highlight
       # вне common.js highlight.js — регистрируются последними, как при
       # явном hljs.registerLanguage(...) поверх common-бандла
       "erb",
+      "dockerfile",
     ] of String
 
     def self.register_common(hljs : HLJS)
