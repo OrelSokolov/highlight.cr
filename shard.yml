@@ -1,5 +1,5 @@
 name: highlight_cr
-version: 0.1.1
+version: 0.1.2
 crystal: ">= 1.21.0"
 description: |
   Порт highlight.js 11.12.0 на Crystal — 1:1 по результатам.
